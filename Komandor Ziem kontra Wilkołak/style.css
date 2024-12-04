@@ -1,0 +1,303 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+/*green #6BCB77*/
+/*yellow #FFD93D*/
+/*red #FF6B6B*/
+
+body {
+    background-color: #525A51;
+    margin: 0;
+    min-height: 100%;
+}
+.game {
+    position: absolute;
+    margin-left:auto;
+    margin-top:auto;
+    margin-right:auto;
+    margin-bottom:auto;
+    top:20%; bottom:20%;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    width: 1600px;
+    height: 850px;
+    background-image: url("jamaWilkolaka.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 10px solid black;
+    border-radius: 25px;
+}
+h1 {
+    font-size: 250%;
+}
+input {
+    border-radius: 5px;
+}
+.player1, .player2 {
+    background-color: rgba(241, 204, 101, 0.3);
+    border-radius: 15px;
+    padding: 0 40px;
+    backdrop-filter: blur(3px);
+}
+
+.player1 {
+    position: absolute;
+    height: 300px;
+    width: 400px;
+    bottom: 110px;
+    left: 50px;
+}
+.p1Sprite {
+    width: 800px;
+    position: absolute;
+    bottom: 0px;
+    left: 100px;
+    z-index: 0;
+}
+.p1BrickAttackSprite {
+    width: 200px;
+    position: absolute;
+    bottom: 140px;
+    left: 480px;
+    z-index: -1;
+}
+#p1BrickAttackSpriteActive {
+    animation: BrickThrow 1s;
+    animation-fill-mode: forwards;
+  }
+@keyframes BrickThrow {
+    100% {transform: translate(400px,-400px);}
+}
+#p1Health {
+    margin: 0;
+    text-align: left;
+}
+#p2Health {
+    margin: 0;
+    text-align: left;
+}
+
+.player1 h1 {
+    color: rgb(196, 17, 196);
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: purple;
+}
+.p1Comments, .p2Comments {
+    position: absolute;
+    width: 40%;
+    height: 15%;
+    border: black solid 5px;
+    border-radius: 15px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.p1Comments {
+    bottom: 10px;
+    right: 10px;
+    background-color: rgb(255, 255, 209);
+}
+#p1Comment, #p2Comment {
+    font-size: 130%;
+    text-align: center;
+    margin: 5px;
+}
+.p1Actions__Stats, .p2Actions__Stats{
+    display: flex;
+    justify-content: space-around;
+}
+.p1Actions__Stats p, .p2Actions__Stats p{
+    padding: 0 10px;
+}
+.p2Comments {
+    top: 10px;
+    left: 10px;
+    background-color: rgb(255, 255, 209);
+}
+
+.p1Cockpit {
+    display: flex;
+    flex-direction: column;
+}
+.p1__healthContainer {
+    background-color: #6BCB77;
+    width: 100%;
+    padding: 5px;
+    color: white;
+    font-size: 115%;
+}
+.p1__health {
+    display: flex;
+    align-items: right;
+}
+.p1Actions {
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+}
+.p1Actions input {
+    margin: 10px;
+    padding: 5px;
+    width: 110px;
+    white-space: normal;
+}
+.p1OffensiveMain {
+    background-color: #C683D7; 
+    border: none;
+}
+.p1OffensiveMain:hover {
+    background-color: #ddafe9; 
+}
+.p1Offensive {
+    background-color:rgb(217, 67, 255);
+    border: none;
+}
+.p1Offensive:hover {
+    background-color:rgb(236, 161, 255);
+}
+.p1DefensiveMain {
+    background-color: #3a2f46;
+    border: none;
+}
+.p1DefensiveMain:hover {
+    background-color:#8c72a8;
+}
+.p1Defensive {
+    background-color: #51386d;
+    border: none;
+}
+.p1Defensive:hover {
+    background-color: #A367B1;
+}
+.p1BoostersMain {
+    background-color: #4b0f79;
+    border: none;
+}
+.p1BoostersMain:hover {
+    background-color:#8f2fd8;
+}
+.p1Boosters {
+    background-color: #711DB0;
+    border: none;
+}
+.p1Boosters:hover {
+    background-color: #C21292;
+}
+.p1Actions__Attack, .p1Actions__Defensive, .p1Actions__Boosters {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    background-color: purple;
+    border-radius: 15px;
+    margin: 5px;
+}
+.p1Offensive, .p1Defensive, .p1Boosters {
+    display: none;
+}
+
+
+.player2 {
+    position: absolute;
+    height: 300px;
+    width: 400px;
+    top: 50px;
+    right: 30px;
+}
+.p2Sprite {
+    position: absolute;
+    top: 50px;
+    right: 430px;
+    z-index: -2;
+}
+.player2 h1 {
+    text-align: right;
+    color: #3f423f;
+    -webkit-text-stroke-width: 4px;
+    -webkit-text-stroke-color: black;
+}
+.p2Cockpit {
+    display: flex;
+    flex-direction: column;
+}
+.p2__healthContainer {
+    background-color: #6BCB77;
+    width: 100%;
+    padding: 5px;
+    color: white;
+    font-size: 115%;
+}
+.p2Actions {
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+}
+.p2Actions input {
+    margin: 10px;
+    padding: 5px;
+    width: 110px;
+    white-space: normal;
+}
+.p2OffensiveMain {
+    background-color: #860A35;
+    border: none;
+}
+.p2OffensiveMain:hover {
+    background-color: #c03e6c;
+}
+.p2Offensive {
+    background-color: red;
+    border: none;
+}
+.p2Offensive:hover {
+    background-color: rgb(255, 156, 156);
+}
+.p2DefensiveMain {
+    background-color: #737d94;
+    border: none;
+}
+.p2DefensiveMain:hover {
+    background-color: #aabadf;
+}
+.p2Defensive {
+    background-color: #91abe2;
+    border: none;
+}
+.p2Defensive:hover {
+    background-color: #b4c6dd;
+}
+.p2BoostersMain {
+    background-color: #748E63;
+    border: none;
+}
+.p2BoostersMain:hover {
+    background-color: #99B080;
+}
+.p2Boosters {
+    background-color: #6cc92f;
+    border: none;
+}
+.p2Boosters:hover {
+    background-color: #b3ff81;
+}
+.p2Actions__Attack, .p2Actions__Defensive, .p2Actions__Boosters {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    background-color: #181B18;
+    border-radius: 15px;
+    margin: 5px;
+}
+.p2Offensive, .p2Defensive, .p2Boosters {
+    display: none;
+}
+
+.buttonText {
+    color: white;
+    font-size: 110%;
+}
+.displayButton {
+    display: block;
+}

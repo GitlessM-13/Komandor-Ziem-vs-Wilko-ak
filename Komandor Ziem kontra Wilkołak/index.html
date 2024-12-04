@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komandor Ziem kontra Wilkołak</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game">
+        <div class="p1Comments">
+            <p id="p1Comment">Wilkołaku, precz z naszej szkoły! Mamy tu już wystarczająco anomalii.</p>
+            <div class="p1Actions__Stats">
+                <p id="p1Actions">AKCJE: 2</p>
+                <p id="p1Actions__AbilityPower">☄️6</p>
+                <p id="p1Actions__Defense">⛊5</p>
+                <p id="p1Actions__Bleeding">🩸0</p>
+            </div>
+        </div>
+        <img src="Qzm.png" alt="Wilkołak aaa!" class="p1Sprite" id="p1Sprite">
+        <img src="BrickleRick.png" alt="Rick the Brick" class="p1BrickAttackSprite" id="p1BrickAttackSprite">
+        <div class="player1">
+            <h1>KOMANDOR ZIEM</h1>
+            <div class="p1Cockpit">
+                <div class="p1__health">
+                    <div class="p1__healthContainer" id="p1__healthContainer">
+                        <p id="p1Health">100</p>
+                    </div>
+                </div>
+                <div class="p1Actions">
+                    <div class="p1Actions__Attack">
+                        <input type="button" name="p1Offensive" id="p1Offensive" value="Ofensywne" class="buttonText p1OffensiveMain">
+                        <input type="button" name="QziemBlast" id="QziemBlast" value="Qziem Blast" class="p1Offensive buttonText" onclick="player1.QziemBlast()">
+                        <input type="button" name="BrickThrow" id="BrickThrow" value="Rzut Cegłą" class="p1Offensive buttonText" onclick="player1.BrickThrow()">
+                        <input type="button" name="Attracted" id="Attracted" value="Przyciągamy się?" class="p1Offensive buttonText" onclick="player1.Attracted()">
+                    </div>
+                    <div class="p1Actions__Defensive">
+                        <input type="button" name="p1Defensive" id="p1Defensive" value="Defensywne" class="buttonText p1DefensiveMain">
+                        <input type="button" name="QziemShield" id="QziemShield" value="Qziem Tarcza" class="p1Defensive buttonText" onclick="player1.QziemShield()">
+                        <input type="button" name="MeatHeal" id="MeatHeal" value="Karkóweczka" class="p1Defensive buttonText" onclick="player1.MeatHeal()">
+                        <input type="button" name="Bandaid" id="Bandaid" value="Plasterek" class="p1Defensive buttonText" onclick="player1.Bandaid()">
+                    </div>
+                    <div class="p1Actions__Boosters">
+                        <input type="button" name="p1Boosters" id="p1Boosters" value="Wsparcie" class="buttonText p1BoostersMain">
+                        <input type="button" name="FlutePlay" id="FlutePlay" value="Zagraj na flecie" class="p1Boosters buttonText" onclick="player1.FlutePlay()">
+                        <input type="button" name="BadGrade" id="BadGrade" value="Wstaw złą ocenę" class="p1Boosters buttonText" onclick="player1.BadGrade()"> <!--Zmniejsza dmg zadawany przez wilkołaka-->
+                        <input type="button" name="ThinkingBrake" id="ThinkingBrake" value="Przerwa na myślenie" class="p1Boosters buttonText" onclick="player1.ThinkingBrake()">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p2Comments">
+            <p id="p2Comment">Grrrr, wynocha z mojej jamy komandorze!</p>
+            <div class="p2Actions__Stats">
+                <p id="p2Actions">AKCJE: 0</p>
+                <p id="p2Actions__Scariness">🗡️2</p>
+                <p id="p2Actions__MagicResist">🛡️5</p>
+            </div>
+        </div>
+        <img src="Wilkolakaaa.png" alt="Wilkołak aaa!" class="p2Sprite" id="p2Sprite">
+        <div class="player2">
+            <h1>WILKOŁAK AAA!</h1>
+            <div class="p2Cockpit">
+                <div class="p2__health">
+                    <div class="p2__healthContainer" id="p2__healthContainer">
+                        <p id="p2Health">100</p>
+                    </div>
+                </div>
+                <div class="p2Actions">
+                    <div class="p2Actions__Attack">
+                        <input type="button" name="p2Offensive" id="p2Offensive" value="Ofensywne" class="buttonText p2OffensiveMain">
+                        <input type="button" name="FingerBite" id="FingerBite" value="Odgryzienie Palców" class="p2Offensive buttonText" onclick="player2.FingerBite()">
+                        <input type="button" name="RibBreak" id="RibBreak" value="Łamanie Żeberek" class="p2Offensive buttonText" onclick="player2.RibBreak()">
+                        <input type="button" name="Rip" id="Rip" value="Rozprucie" class="p2Offensive buttonText" onclick="player2.Rip()">
+                    </div>
+                    <div class="p2Actions__Defensive">
+                        <input type="button" name="p2Defensive" id="p2Defensive" value="Defensywne" class="buttonText p2DefensiveMain">
+                        <input type="button" name="SteelFur" id="SteelFur" value="Zbroja z Metalowych Szafek" class="p2Defensive buttonText" onclick="player2.SteelFur()">
+                        <input type="button" name="StudentSoul" id="StudentSoul" value="Wyssanie Duszy z Ucznia" class="p2Defensive buttonText" onclick="player2.StudentSoul()">
+                        <input type="button" name="DrinkBlood" id="DrinkBlood" value="Wypij krew" class="p2Defensive buttonText" onclick="player2.DrinkBlood()">
+                    </div>
+                    <div class="p2Actions__Boosters">
+                        <input type="button" name="p2Boosters" id="p2Boosters" value="Wsparcie" class="buttonText p2BoostersMain">
+                        <input type="button" name="Deception" id="Deception" value="Podstęp" class="p2Boosters buttonText" onclick="player2.Deception()">
+                        <input type="button" name="Tunnel" id="Tunnel" value="Podkop do Metra" class="p2Boosters buttonText" onclick="player2.Tunnel()">
+                        <input type="button" name="Sharpen" id="Sharpen" value="Naostrz pazurki" class="p2Boosters buttonText" onclick="player2.Sharpen()">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
