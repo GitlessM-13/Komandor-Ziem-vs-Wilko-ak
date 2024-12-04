@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Strona świąteczna - Marceli Plewa</title>
+    <style>
+        body {
+            margin: 0;
+            color: blanchedalmond;
+        }
+        h2 {
+            color: cornflowerblue;
+        }
+
+        /*=====================================     HEADER     ============================================*/ 
+        header {
+            width: 100%;
+            height: 100px;
+            background-color: #343434;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        /*=====================================     MAIN     ============================================*/
+        .main__nebula {
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+            gap: 100px;
+            background-image: url('galaxy.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position-x: center;
+            background-position-y: center;   
+        }
+        .main__SantaClausVillage {
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+            gap: 100px;
+            background-image: url('SantaClausVillage.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position-x: center;
+            background-position-y: center;   
+        }
+        .main__AdamAndEve {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('AdamAndEve.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position-x: center;
+            background-position-y: center;  
+            height: 200px; 
+        }
+        .main__spaceSnow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('Mars.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position-x: center;
+            background-position-y: center;  
+            height: 600px; 
+        }
+        .main__thermalSantaClaus {
+          display: grid;
+          grid-template-columns: 3fr 2fr;
+          gap: 100px;
+          background-image: url('snowyNightSky.jpg');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-position-x: center;
+          background-position-y: center;  
+          height: 600px; 
+      }
+        .main__MecklenburgVorpommern {
+            display: grid;
+            grid-template-columns: 4fr 1fr;
+            gap: 100px;
+            background-image: url('backrooms.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position-x: center;
+            background-position-y: center;  
+            height: 600px; 
+        }
+
+        .main__nebula--nebula, .main__SantaClausVillage--location {
+            width: 100%;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            margin: 50px;
+        }
+        .main__MecklenburgVorpommern--image, .main__thermalSantaClaus--image {
+            display: flex;
+            align-items: center;
+            margin-right: 50px;
+        }
+        .main__nebula--nebulaImg, .main__MecklenburgVorpommern--image img {
+            width: 100%;
+            height: auto;
+            border: #454545 5px solid;
+        }
+
+        .main__thermalSantaClaus--image img {
+          width: 100%;
+        }
+
+        .main__MecklenburgVorpommern--image img {
+            border: #D0B8A8 5px solid;
+        }
+        
+        .main__nebula--Text, .main__SantaClausVillage--text, .main__AdamAndEve--Text, .main__spaceSnow--text, .main__thermalSantaClaus--text, .main__MecklenburgVorpommern--text {
+            margin: 150px;
+            margin-left: 50px;
+            border: #454545 5px solid;
+            background-color: #676767;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 12px;
+            text-align: center;
+        }
+        .main__MecklenburgVorpommern--text {
+            border: #D0B8A8 5px solid;
+            background-color: #F8EDE3;
+            color: #85586F;
+        }
+
+        .main__SantaClausVillage--text, .main__AdamAndEve--Text, .main__thermalSantaClaus--text {
+            border: red 5px solid;
+            background-color: white;
+            color: red;
+        }
+
+        .main__ohioBanner img{
+            width: 100%;
+        }
+        .main__ohioBanner {
+            height: 247px;
+        }
+        
+        .separator {
+            width: 100%;
+            height: 10px;
+            background-color: #343434;
+        }
+        
+        /*=====================================     ŚNIEG     ============================================*/
+
+        #snowflakeContainer {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            display: none;
+        }
+
+        .snowflake {
+          position: fixed;
+          background-color: #FFFFFF;
+          user-select: none;
+          z-index: 1000;
+          pointer-events: none;
+          border-radius: 50%;
+          width: 10px;
+          height: 10px;
+        }
+
+        /*=====================================     TOWARNICZKI     ============================================*/
+
+        button {
+          border-radius: 5px;
+          border: #D0B8A8 3px solid;
+          background-color: #F8EDE3;
+          color: #85586F;
+        }
+
+        #towarniczek__onHover {
+          animation: onHover 2s;
+          animation-fill-mode: forwards;
+        }
+        @keyframes onHover {
+          50% {transform: translateY(150px);}
+        }
+        #towarniczek__onMouseOut {
+          animation: onMouseOut 5s;
+          animation-fill-mode: forwards;
+        }
+        @keyframes onMouseOut {
+          0% {transform: translateY(150px);}
+          100% {transform: translateY(0px);}
+        }
+
+        .towarniczek__accepted {
+          position: fixed;
+          z-index: 9997;
+          bottom: -130px;
+          right: 100px;
+          display: none;
+        }
+        .towarniczek__accepted img {
+          max-width: 221px;
+        }
+
+        .towarniczki__background {
+          margin: 0;
+          width: 100%;
+          height: 100%;
+          background-color: #D0B8A8;
+          opacity: 50%;
+          position:fixed;
+          z-index: 9998;
+        }
+        .towarniczki__text {
+          width: 0.5fr;
+          height: 0.5fr;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          z-index: 9999;
+          background-color: white;
+          border: 3px #a99688 solid;
+          position: fixed;
+          border-radius: 10px;
+          width: 60%;
+          height: 40%;
+          margin: 15% 20%;
+          transition: 1s;
+          color: #85586F;
+        }
+        .towarniczki__text--towarniczki {
+          display: flex;
+          justify-content: space-between;
+        }
+        .towarniczki__text img {
+          width: 15%;
+        }
+
+        #towarniczki1 {
+          animation: towarniczki-spierniczki1 6s;
+          animation-fill-mode: forwards;
+        }
+        #towarniczki2{
+          animation: towarniczki-spierniczki2 10s;
+          animation-fill-mode: forwards;
+        }
+        #towarniczki3 {
+          animation: towarniczki-spierniczki3 10s;
+          animation-fill-mode: forwards;
+        }
+        #towarniczki4 {
+          animation: towarniczki-spierniczki4 10s;
+          animation-fill-mode: forwards;
+        }
+        #towarniczki5 {
+          animation: towarniczki-spierniczki5 8s;
+          animation-fill-mode: forwards;
+        }
+        #towarniczki6 {
+          animation: towarniczki-spierniczki6 10s;
+          animation-fill-mode: forwards;
+        }
+
+        @keyframes towarniczki-spierniczki1 {
+          4% {transform: translate(100px,10px);}
+          8% {transform: translate(200px,-10px);}
+          12% {transform: translate(300px,10px);}
+          16% {transform: translate(400px,-10px);}
+          20% {transform: translate(500px,10px);}
+          24% {transform: translate(600px,-10px);}
+          28% {transform: translate(700px,10px);}
+          32% {transform: translate(800px,-10px);}
+          36% {transform: translate(900px,10px);}
+          40% {transform: translate(1000px,-10px);}
+          44% {transform: translate(11000px,10px);}
+          48% {transform: translate(1200px,-10px);}
+          52% {transform: translate(1300px,10px);}
+          56% {transform: translate(1400px,-10px);}
+          60% {transform: translate(1500px,10px);}
+          64% {transform: translate(1600px,-10px);}
+          68% {transform: translate(1700px,10px);}
+          72% {transform: translate(1800px,-10px);}
+          76% {transform: translate(1900px,10px);}
+          80% {transform: translate(2000px,-10px);}
+          84% {transform: translate(2100px,10px);}
+          88% {transform: translate(2200px,-10px);}
+          92% {transform: translate(2300px,10px);}
+          96% {transform: translate(2400px,-10px);}
+          100% {transform: translate(2500px,10px);}
+        }
+        @keyframes towarniczki-spierniczki2 {
+          4% {transform: translate(-150px,11px);}
+          8% {transform: translate(-300px,-12px);}
+          12% {transform: translate(-350px,12px);}
+          16% {transform: translate(-400px,-11px);}
+          20% {transform: translate(-500px,11px);}
+          24% {transform: translate(-650px,-13px);}
+          28% {transform: translate(-800px,13px);}
+          32% {transform: translate(-950px,-11px);}
+          36% {transform: translate(-1100px,11px);}
+          40% {transform: translate(-1250px,-11px);}
+          44% {transform: translate(-1400px,11px);}
+          48% {transform: translate(-1550px,-13px);}
+          52% {transform: translate(-1700px,11px);}
+          56% {transform: translate(-1850px,-11px);}
+          60% {transform: translate(-2000px,12px);}
+          64% {transform: translate(-21000px,-11px);}
+          68% {transform: translate(-2150px,12px);}
+          72% {transform: translate(-2200px,-11px);}
+          76% {transform: translate(-2300px,11px);}
+          80% {transform: translate(-2450px,-11px);}
+          84% {transform: translate(-2600px,10px);}
+          88% {transform: translate(-2750px,-10px);}
+          92% {transform: translate(-2900px,10px);}
+          96% {transform: translate(-3000px,-10px);}
+          100% {transform: translate(-3100px,10px);}
+        }
+        @keyframes towarniczki-spierniczki3 {
+          4% {transform: translate(150px,11px);}
+          8% {transform: translate(300px,-12px);}
+          12% {transform: translate(350px,12px);}
+          16% {transform: translate(400px,-11px);}
+          20% {transform: translate(500px,11px);}
+          24% {transform: translate(650px,-13px);}
+          28% {transform: translate(800px,13px);}
+          32% {transform: translate(950px,-11px);}
+          36% {transform: translate(1100px,11px);}
+          40% {transform: translate(1250px,-11px);}
+          44% {transform: translate(1400px,11px);}
+          48% {transform: translate(1550px,-13px);}
+          52% {transform: translate(1700px,11px);}
+          56% {transform: translate(1850px,-11px);}
+          60% {transform: translate(2000px,12px);}
+          64% {transform: translate(21000px,-11px);}
+          68% {transform: translate(2150px,12px);}
+          72% {transform: translate(2200px,-11px);}
+          76% {transform: translate(2300px,11px);}
+          80% {transform: translate(2450px,-11px);}
+          84% {transform: translate(2600px,10px);}
+          88% {transform: translate(2750px,-10px);}
+          92% {transform: translate(2900px,10px);}
+          96% {transform: translate(3000px,-10px);}
+          100% {transform: translate(3100px,10px);}
+        }
+        @keyframes towarniczki-spierniczki4 {
+          4% {transform: translate(-200px,11px);}
+          8% {transform: translate(-400px,-12px);}
+          12% {transform: translate(-500px,12px);}
+          16% {transform: translate(-550px,-11px);}
+          20% {transform: translate(-600px,11px);}
+          24% {transform: translate(-650px,-13px);}
+          28% {transform: translate(-800px,13px);}
+          32% {transform: translate(-950px,-11px);}
+          36% {transform: translate(-1100px,11px);}
+          40% {transform: translate(-13000px,-11px);}
+          44% {transform: translate(-1400px,11px);}
+          48% {transform: translate(-1550px,-13px);}
+          52% {transform: translate(-1700px,11px);}
+          56% {transform: translate(-1850px,-11px);}
+          60% {transform: translate(-2000px,12px);}
+          64% {transform: translate(-21000px,-11px);}
+          68% {transform: translate(-2150px,12px);}
+          72% {transform: translate(-2200px,-11px);}
+          76% {transform: translate(-2300px,11px);}
+          80% {transform: translate(-2450px,-11px);}
+          84% {transform: translate(-2600px,10px);}
+          88% {transform: translate(-2750px,-10px);}
+          92% {transform: translate(-2900px,10px);}
+          96% {transform: translate(-3000px,-10px);}
+          100% {transform: translate(-3100px,10px);}
+        }
+        @keyframes towarniczki-spierniczki5 {
+          0% {transform: rotate(0deg);}
+          20% {transform: rotate(180deg);}
+          50% {transform: translateY(200px);}
+          100% {transform: translateY(-3000px);}
+        }
+        @keyframes towarniczki-spierniczki6 {
+          100% {transform: translate(3500px);}
+        }
+    </style>
+</head>
+<body>
+  <div class="towarniczek__accepted" onmouseout="towarniczekShow()" onmouseover="towarniczekHide()">
+    <img src="Towarniczek.png" alt="TowarniczekHelper" id="towarniczek__onMouseOut">
+  </div>
+    <div class="towarniczki__background">
+    </div>
+    <div class="towarniczki__text">
+      <h1>Czy zgadzasz się na aktywowanie TOWARNICZKÓW?</h1>
+      <div class="towarniczki__text--towarniczki">
+        <img src="Towarniczek.png" alt="Towarniczek" id="towarniczki1--nope">
+        <img src="Towarniczek_Cukiereczek.png" alt="Towarniczek" id="towarniczki2--nope">
+        <img src="Towarniczek_Black.png" alt="Towarniczek" id="towarniczki3--nope">
+        <img src="Towarniczek.png" alt="Towarniczek" id="towarniczki4--nope">
+        <img src="Towarniczek.png" alt="Towarniczek" id="towarniczki5--nope">
+        <img src="Towarniczek.png" alt="Towarniczek" id="towarniczki6--nope">
+      </div>
+      <div>
+        <button id="Heck Ye">TAK</button>
+        <button id="Nope" onclick="setTimeout(dissapear, 5000)">WON MI Z EKRANU!</button>
+      </div>
+    </div>
+    <div id="snowflakeContainer">
+      <span class="snowflake"></span>
+    </div>
+    <header>
+        <h1>Różne losowe ciekawostki związane z Bożym Narodzeniem</h1>
+    </header>
+    <main>
+        <div class="main__nebula">
+            <div class='main__nebula--nebula'>
+                <img src="christmasTreeNebula.jpg" alt="mgławica choinka" class="main__nebula--nebulaImg">
+            </div>
+            <div class="main__nebula--Text">
+                <h2>Najbardziej świąteczny obiekt głębokiego nieba</h2>
+                <p>NGC 2264 - gromada choinka - Collinder 112 - gromada ta zanurzona jest w mgławicy refleksyjnej, w której powstają nowe gwiazdy, otoczonej większą, świecącą na czerwono mgławicą emisyjną. Mgławica emisyjna jest pobudzana do świecenia przez energetyczne światło nowo powstałych gwiazd. W części zewnętrznej miesza się ona z ciemnymi obłokami pyłu międzygwiazdowego. Jest to obszar H II. Obiekt ten jest nazywany też Gromadą Choinka ze względu na ułożenie gwiazd naprzeciw znajdującej się w NGC 2264 Mgławicy Stożek. Inna część NGC 2264 znajdująca się po drugiej stronie gromady od Mgławicy Stożek bywa nazywana Mgławicą Futro z Lisa. Najjaśniejsza gwiazda gromady to S Monocerotis.</p>
+            </div>
+        </div>
+        <div class="separator"></div>
+        <div class="main__spaceSnow">
+            <div class="main__spaceSnow--text">
+                <h2>W kosmosie nie ma śniegu :C Ale przynajmniej istnieje on na planetach!</h2>
+                <p>Opady atmosferyczne, do których zalicza się śnieg, mogą zachodzić jedynie w atmosferze. Przez to w próżni nie ma śniegu :C Ale opady śniegu występują też na innych planetach! Naukowcy z NASA wykryli je już na Marsie. Nie jest to jednak jedyny typ śniegu jaki występuje na Marsie. Otóż jego bieguny są zbudowane z suchego lodu. W 2012 roku na biegunie południowym Marsa wykryto opady śniegu z suchego lodu!</p>
+            </div>
+        </div>
+        <div class="separator"></div>
+        <div class="main__AdamAndEve">
+            <div class="main__AdamAndEve--Text">
+                <p>24 grudnia imieniny obchodzą Adam oraz Ewa. Przypadek? Nie sądzę... To z pewnością jakieś zjawisko paranormalne! Mówiąc o tym, chcielibyśmy poświęcić chwilę dla naszego sponsora: Ohio Busters.</p>
+            </div>
+        </div>
+        <div class="separator"></div>
+        <div class="main__ohioBanner">
+            <img src="ohioBusters.png" alt="Ḓ̸̢̜̻̣̖͚̗̩̭͖͊́̑︢͌̎̆̓ͣ᷾᷆̂̆e̶᷊̝͉̪̯̜̙̠̞͖̲̲᷊̩͎̱ͥ̆̓͑͌̋ͤ̂͑́͛̆᷉m̵̡̩͔̺̤̤͓̞̬͚̘̼̭̺̂̅̃̋ͩ́ͧͤ̍ͬ̃͘ǫ̴̛͈͔͈͚͇͎̗͉͉͕̲͆ͧͮ́͐̾̂̄ͥͫͯ̂̐ͯͯ̚̕͞n̵̨̧̛̛̺̱̩̱͇̮͈͖̳̮̣̮̜̝̦͗᷀᷄́︢͂̽͌̎̈́͒͛͂̕͘͘͢ỳ̵̧̫̲͉͔᷊̖͓̼̪̣̠̱͑͑͆̐ͭ︣̎᷃᷀᷇︣ͨͭͦͭ̋᷾͢͟͢͟͢͝͡ z̷̢̤̗̺̭̗̹̗͈̪͎͖̲̖͉̣̰̞̀͂͋̄͛̔᷀̿ͭ᷆̈́̅ͯ͘͜ Ơ̴̛͈͖̩͖̯̹̭͚͇̠̗̗̿᷾ͪ᷃ͥ́᷈̓́̕͟͞͠h̵̢̡̻᷿̲̫̲͈̩̗̖̼͋́́̌᷇᷉᷀͆̀͑͞͠͝͡͞i̴̜̫̹̻̣͖̭̟̦̯̪̜͆᷁̽̈́̀̀︠᷉̈̇͐̅́̕͢͠ŏ̸̢̺̟̼̖̼̫̤̙͇̖̻̖̮︣᷁̄̋̈́ͬ̕͜͞͝ t̸̡̢̡̨̛̙̤͚͕̝̯̘̹̠͕̝̿͑ͩ̇͋ͤ᷾᷾᷅͢͞ų̷̬͓͉᷊͚̞̱̫̽︣̏̇ͯͤ́̀ͧͯ︠̅͘͢͠͞ b̸̨̧̫᷂᷂͕̹̬̠̹̲͈̩̙̘᷈ͫ᷉̎ͦ᷀̄ͭ᷁̈́͜͜͝͝y̵᷂͈̭̭̠̘̱᷿̻̹̹̝̟ͪ̆᷃︠͑︢͗᷅͐̏̂̌͊̾ł̸̹̠̦̱̭̞̬᷊̤̞̪͕͇̖̼̐̌͂̆̔̇︢̑̓᷈ͨͮ̽ͭ͋ͥ︠̋͝y̵̰͈͓͖᷊̯̲̜̖̺̝̭̗̯̜ͦ᷁͌̐̀͑ͬ̀︠̂ͮ̔᷾̋ͪ͜͠!̵̢̡̟̗̣̩̠̯̺̼̲̪̜̲͇̠̪̩ͣ͋̏̈᷉̅︣̆̔᷀́᷆͠">
+        </div>
+        <div class="separator"></div>
+        <div class="main__SantaClausVillage">
+            <div class="main__SantaClausVillage--location">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3669.8510145370506!2d25.83910064262087!3d66.54291830945917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x442b4e7e543e9979%3A0xd7f9b9e4341d7ed3!2zV2lvc2thIMWad2nEmXRlZ28gTWlrb8WCYWph!5e0!3m2!1spl!2spl!4v1671197320750!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="main__SantaClausVillage--text">
+                <h2 style="color: red;">To tu znajduje się wioska Świętego Mikołaja!</h2>
+            </div>
+        </div>
+        <div class="separator"></div>
+        <div class="main__thermalSantaClaus">
+            <div class="main__thermalSantaClaus--text">
+                <h1>Wojsko Stanów Zjednoczonych co roku śledzi Mikołaja dzięki NORAD!</h1>
+                <p>Świętego Mikołaja można wykryć dzięki jego reniferowi, Rudolfowi. A dokładnie dzięki jego czerwonemu nosu, który jest 10 razy gorętszy niż wnętrze rozgrzanego piekarnika, czyli prawie 2500 stopni Celsjusza! Posiada on więc wysoki ślad cieplny i łatwo można zobaczyć go dzięki kamerom termowizyjnym, w które wyposażony jest system NORAD. Po prawej zdjęcie sań Świętego Mikołaja w podczerwieni. Niestety musiało ono zostać ocenzurowane, ponieważ Mikołaj korzysta z bardzo zaawansowanej technologii, która gdyby wpadła w niepowołane ręce mogłaby sprowadzić na ludzkość katastrofę! </p>
+            </div>
+            <div class="main__thermalSantaClaus--image">
+                <img src="thermalSantaClaus.png" alt="Mikołaj w termowizji">
+            </div>
+        </div>
+        <div class="separator"></div>
+        <div class="main__MecklenburgVorpommern">
+            <div class="main__MecklenburgVorpommern--text">
+              <h1>Geographie fakt</h1>
+              <p>Laponia jest tak naprawdę częścią Niemiec. Znajduje się ona w Mecklenburg Vorpommern, zgodnie z obrazkiem obok. To dość dziwne. Czyżby Święty Mikołaj krył przed nami jakąś dziwną historię?</p>
+            </div>
+            <div class="main__MecklenburgVorpommern--image">
+                <img src="Laponia_to_Mecklenburg_Vorpommern.gif" alt="Mecklenburg Vorpommern gibt es nicht">
+            </div>
+        </div>
+        <script>
+        
+          function towarniczekHide(){
+            document.getElementById('towarniczek__onMouseOut').id = 'towarniczek__onHover';
+          }
+          function towarniczekShow() {
+            document.getElementById('towarniczek__onHover').id = 'towarniczek__onMouseOut';
+          }
+
+        function dissapear() {
+          document.querySelector('.towarniczki__text').style.display = 'none';
+          document.querySelector('.towarniczki__background').style.display = 'none';
+        };
+        function towarniczkiSpierniczajki(){
+          document.getElementById('towarniczki1--nope').id = 'towarniczki1'
+          document.getElementById('towarniczki2--nope').id = 'towarniczki2'
+          document.getElementById('towarniczki3--nope').id = 'towarniczki3'
+          document.getElementById('towarniczki4--nope').id = 'towarniczki4'
+          document.getElementById('towarniczki5--nope').id = 'towarniczki5'
+          document.getElementById('towarniczki6--nope').id = 'towarniczki6'
+        }
+
+        function towarniczki() {
+          document.querySelector('.towarniczki__text').style.display = 'none';
+          document.querySelector('.towarniczki__background').style.display = 'none';
+          document.cookie = "KOD=TOWAR10"; "path=/";
+          document.querySelector('.towarniczek__accepted').style.display = 'block';
+        }
+
+        document.getElementById('Nope').addEventListener('click', towarniczkiSpierniczajki);
+
+        document.getElementById('Heck Ye').addEventListener('click', towarniczki);
+        
+
+        /*=====================================     ŚNIEG     ============================================*/
+  
+  let snowflakes = [];
+  let browserWidth;
+  let browserHeight;
+  let numberOfSnowflakes = 150;
+  let resetPosition = false;
+  let enableAnimations = false;
+  let reduceMotionQuery = matchMedia("(prefers-reduced-motion)");
+
+  function setAccessibilityState() {
+    if (reduceMotionQuery.matches) {
+      enableAnimations = false;
+    } else {
+      enableAnimations = true;
+    }
+  }
+  setAccessibilityState();
+
+  reduceMotionQuery.addListener(setAccessibilityState);
+
+  function setup() {
+    if (enableAnimations) {
+      window.addEventListener("DOMContentLoaded", generateSnowflakes, false);
+      window.addEventListener("resize", setResetFlag, false);
+    }
+  }
+  setup();
+
+  class Snowflake {
+    constructor(element, speed, xPos, yPos) {
+      this.element = element;
+      this.speed = speed;
+      this.xPos = xPos;
+      this.yPos = yPos;
+      this.scale = 1;
+
+      this.counter = 0;
+      this.sign = Math.random() < 0.5 ? 1 : -1;
+
+      this.element.style.opacity = (0.1 + Math.random()) / 3;
+    }
+
+    update(delta) {
+      this.counter += (this.speed / 5000) * delta;
+      this.xPos += (this.sign * delta * this.speed * Math.cos(this.counter)) / 40;
+      this.yPos += Math.sin(this.counter) / 40 + (this.speed * delta) / 30;
+      this.scale = 0.5 + Math.abs((10 * Math.cos(this.counter)) / 20);
+
+      setTransform(
+        Math.round(this.xPos),
+        Math.round(this.yPos),
+        this.scale,
+        this.element
+      );
+
+      if (this.yPos > browserHeight) {
+        this.yPos = -50;
+      }
+    }
+  }
+
+
+  function setTransform(xPos, yPos, scale, el) {
+    el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0) scale(${scale}, ${scale})`;
+  }
+
+
+  function generateSnowflakes() {
+    let originalSnowflake = document.querySelector(".snowflake");
+
+    let snowflakeContainer = originalSnowflake.parentNode;
+    snowflakeContainer.style.display = "block";
+    browserWidth = document.documentElement.clientWidth;
+    browserHeight = document.documentElement.clientHeight;
+
+    for (let i = 0; i < numberOfSnowflakes; i++) {
+      let snowflakeClone = originalSnowflake.cloneNode(true);
+      snowflakeContainer.appendChild(snowflakeClone);
+      let initialXPos = getPosition(50, browserWidth);
+      let initialYPos = getPosition(50, browserHeight);
+      let speed = (5 + Math.random() * 40) * delta;
+      let snowflakeObject = new Snowflake(
+        snowflakeClone,
+        speed,
+        initialXPos,
+        initialYPos
+      );
+      snowflakes.push(snowflakeObject);
+    }
+    snowflakeContainer.removeChild(originalSnowflake);
+
+    requestAnimationFrame(moveSnowflakes);
+  }
+  let frames_per_second = 60;
+  let frame_interval = 1000 / frames_per_second;
+
+  let previousTime = performance.now();
+  let delta = 1;
+
+  function moveSnowflakes(currentTime) {
+    delta = (currentTime - previousTime) / frame_interval;
+
+    if (enableAnimations) {
+      for (let i = 0; i < snowflakes.length; i++) {
+        let snowflake = snowflakes[i];
+        snowflake.update(delta);
+      }
+    }
+
+    previousTime = currentTime;
+    if (resetPosition) {
+      browserWidth = document.documentElement.clientWidth;
+      browserHeight = document.documentElement.clientHeight;
+
+      for (let i = 0; i < snowflakes.length; i++) {
+        let snowflake = snowflakes[i];
+
+        snowflake.xPos = getPosition(50, browserWidth);
+        snowflake.yPos = getPosition(50, browserHeight);
+      }
+
+      resetPosition = false;
+    }
+
+    requestAnimationFrame(moveSnowflakes);
+  }
+  function getPosition(offset, size) {
+    return Math.round(-1 * offset + Math.random() * (size + 2 * offset));
+  }
+  function setResetFlag(e) {
+    resetPosition = true;
+  }
+        </script>
+    </main>
+</body>
+</html>
